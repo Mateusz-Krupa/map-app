@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: map-app-fe-deploy
+  labels: 
+    app: map-app-fe
+spec:
+  selector:
+    matchLabels:
+      app: map-app-fe
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: map-app-fe
+    spec:
+      containers:
+      - name: map-app-fe
+        image: gcr.io/word-map-384916/map-app-fe:0.0.3
+        imagePullPolicy: Always
+        envFrom: 
+        - configMapRef: 
+            name: map-app-fronted-settings 
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"

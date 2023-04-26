@@ -24,8 +24,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
+# local env files & configuration
 .env*.local
+.env
+.k8s/configMap.yml
 
 # vercel
 .vercel

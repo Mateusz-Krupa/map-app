@@ -36,10 +36,4 @@ function HomePage() {
   );
 }
 
-export { HomePage }
-
-export default function App() {
-  return (
-    <HomePage />
-  );
-}
+export default HomePage;
